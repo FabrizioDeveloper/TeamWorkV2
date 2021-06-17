@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>	
+
+		<meta charset="UTF-8"></meta>
+		<title>Usuarios</title>
+
+		<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+		<link 	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+				rel="stylesheet" id="bootstrap-css">
+		</link>
+
+		<script
+			src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js">
+		</script>
+
+		<script type="text/javascript" th:src="@{/js/race.js}"></script>
+
+	</head>
+	
+	<body>
+		<div th:replace="fragments/header :: header"></div>
+		<div class="container">
+			<form th:action="@{/usuario/registrar}" method="post" th:object="${usuario}">
+				<div class="form-group">
+					<label for="idusuario">ID:</label>
+					<input type="text" class="form-control" th:field="*{idUsuario}"></input>
+					
+					<div class="form-group">
+						<label for="cuenta">CUENTA:</label>
+						<input type="text" class="form-control" th:field="*{cuentaUsuario}" id="cuenta"></input>
+						
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('cuentaUsuario')}" 
+								th:errors="*{cuentaUsuario}">
+						</div>						
+					</div>
+					
+					<div class="form-group">
+						<label for="nombres">NOMBRES:</label>
+						<input type="text" class="form-control" th:field="*{nombresUsuario}" id="nombres"></input>
+						
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('nombresUsuario')}" 
+								th:errors="*{nombresUsuario}">
+						</div>						
+					</div>
+					
+					<div class="form-group">
+						<label for="apellidos">APELLIDOS:</label>
+						<input type="text" class="form-control" th:field="*{apellidosUsuario}" id="apellidos"></input>
+						
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('apellidosUsuario')}" 
+								th:errors="*{apellidosUsuario}">
+						</div>						
+					</div>
+					
+					<div class="form-group">
+						<label for="correo">CORREO:</label>
+						<input type="text" class="form-control" th:field="*{correoUsuario}" id="correo"></input>
+						
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('correoUsuario')}" 
+								th:errors="*{correoUsuario}">
+						</div>						
+					</div>
+					
+					<div class="form-group">
+						<label for="edad">EDAD:</label>
+						<input type="text" class="form-control" th:field="*{edadUsuario}" id="edad"></input>
+						
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('edadUsuario')}" 
+								th:errors="*{edadUsuario}">
+						</div>						
+					</div>
+					
+					<div class="form-group">
+						<label for="sexo">SEXO:</label>
+						<input type="text" class="form-control" th:field="sexo" id="sexo"></input>
+						
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('sexo')}" 
+								th:errors="*{sexo}">
+						</div>						
+					</div>
+					
+					<div class="form-group">
+						<label for="telefono">TELEFONO:</label>
+						<input type="text" class="form-control" th:field="*{telefono}" id="telefono"></input>
+						
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('telefono')}" 
+								th:errors="*{telefono}">
+						</div>						
+					</div>
+					
+					<div class="form-group">
+						<label for="clave">CLAVE:</label>
+						<input type="text" class="form-control" th:field="*{claveUsuario}" id="clave"></input>
+						
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('claveUsuario')}" 
+								th:errors="*{claveUsuario}">
+						</div>						
+					</div>
+					
+					<div class="form-group">
+						<label for="ubicacion">UBICACION:</label>
+						<input type="text" class="form-control" th:field="*{ubicacion}" id="ubicacion"></input>
+						
+						<div 	class="alert alert-danger" th:if="${#fields.hasErrors('ubicacion')}" 
+								th:errors="*{ubicacion}">
+						</div>						
+					</div>					
+					
+				</div>
+				<button type="submit" class="btn btn-primary">Aceptar</button>
+				<a href="/usuario/listar" class="btn btn-danger">Cancelar</a>
+				
+			</form>
+		</div>
+		<div th:replace="fragments/footer :: footer"></div>
+	</body>
+	
+</html>
